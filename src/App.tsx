@@ -2242,7 +2242,7 @@ const rekapSantriData = useMemo(() => {
                     PTYQ 1 PUTRA
                   </div>
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    UNIT SMA
+                    UNIT SMP
                   </div>
                 </div>
               )}
