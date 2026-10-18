@@ -1,0 +1,120 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+@media print {
+  /* 1. Sembunyikan elemen navigasi dan tombol */
+  aside, nav, header, button, select, input, .no-print {
+    display: none !important;
+  }
+
+  /* 2. Reset Layout Body dan Root (Hapus Margin & Padding) */
+  html, body, #root {
+    display: block !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* 3. Tarik area utama (main) ke paling atas */
+  main {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Menghapus padding atas yang membuat judul turun */
+    min-height: auto !important;
+  }
+
+  /* 4. Paksa semua container layout untuk rata atas (Menghindari vertical center) */
+  .flex, .flex-col, .h-screen, .min-h-screen {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important; /* Menghilangkan jarak ekstra di atas konten */
+  }
+
+  /* 5. Pengaturan tabel agar baris tidak terpotong */
+  table {
+    width: 100% !important;
+    page-break-inside: auto !important;
+  }
+  thead {
+    display: table-header-group !important;
+  }
+  tr, td, th {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+  
+  /* 6. Hilangkan shadow dan border berlebih agar cetakan lebih bersih */
+  .shadow-sm, .shadow-md, .shadow-lg {
+    box-shadow: none !important;
+  }
+}

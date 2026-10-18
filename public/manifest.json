@@ -1,0 +1,24 @@
+{
+"name": "SiLapor Pondok SMP",
+"short_name": "SiLapor Pondok SMP",
+"description": "Sistem Kendali Mutu & Monitoring Pondok SMP Putra",
+"start_url": "/",
+"display": "standalone",
+"background_color": "#1e2337",
+"theme_color": "#1e2337",
+"orientation": "any",
+"icons": [
+{
+"src": "/Favicon192.svg",
+"sizes": "192x192",
+"type": "image/png",
+"purpose": "any maskable"
+},
+{
+"src": "/favicon.svg",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any maskable"
+}
+]
+}
