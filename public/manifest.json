@@ -1,7 +1,7 @@
 {
-"name": "SiLapor Pondok SMP",
-"short_name": "SiLapor Pondok SMP",
-"description": "Sistem Kendali Mutu & Monitoring Pondok SMP Putra",
+"name": "SiLapor Pondok SMA",
+"short_name": "SiLapor Pondok SMA",
+"description": "Sistem Kendali Mutu & Monitoring Pondok SMA Putra",
 "start_url": "/",
 "display": "standalone",
 "background_color": "#1e2337",
