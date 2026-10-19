@@ -2242,7 +2242,7 @@ const rekapSantriData = useMemo(() => {
                     PTYQ 1 PUTRA
                   </div>
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    UNIT SMP
+                    UNIT SMA
                   </div>
                 </div>
               )}
@@ -2435,7 +2435,7 @@ const rekapSantriData = useMemo(() => {
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
             <div className="min-w-0">
-              <div className="font-bold text-xs truncate">PTYQ 1 PUTRA SMP</div>
+              <div className="font-bold text-xs truncate">PTYQ 1 PUTRA SMA</div>
               <div className="text-[9px] text-slate-400 uppercase tracking-widest font-semibold truncate">
                 {navTab === 'dashboard' ? 'Dashboard Pantauan' : navTab === 'laporan' ? 'Laporan IKU' : navTab === 'monitoring_kebersihan' ? 'Monitoring Kebersihan' : navTab === 'rekap_absensi' ? 'Presensi' : activeDivision.name}
               </div>
