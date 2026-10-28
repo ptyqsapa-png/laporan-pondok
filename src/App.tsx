@@ -964,7 +964,43 @@ const [spList, setSpList] = useState<any[]>([]); // Menyimpan opsi SP dinamis
       showToast('Gagal menghapus program di server', 'error');
     }
   };
+const handleDeleteLaporan = async (id: number | string) => {
+    const konfirmasi = window.confirm("Apakah Anda yakin ingin menghapus riwayat laporan ini?");
+    if (!konfirmasi) return;
 
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
+        method: 'DELETE',
+        headers: reqHeaders,
+      });
+
+      if (!response.ok) {
+        throw new Error('Gagal menghapus data di server');
+      }
+
+      setLaporanKebersihanList((prevList: any[]) => prevList.filter((item) => item.id !== id));
+      
+      if (typeof showToast === 'function') {
+        showToast('Riwayat berhasil dihapus', 'success');
+      } else {
+        alert('Riwayat berhasil dihapus');
+      }
+
+      fetchSupabaseData(); // Refresh data setelah dihapus
+    } catch (error: any) {
+      console.error('Error deleting:', error);
+      if (typeof showToast === 'function') {
+        showToast('Gagal menghapus riwayat', 'error');
+      } else {
+        alert('Gagal menghapus riwayat');
+      }
+    }
+  };
+  // ===================================================
+
+  const fetchSupabaseData = async () => {
+    setIsLoading(true);
+    try {
   const fetchSupabaseData = async () => {
     setIsLoading(true);
     try {
@@ -3027,6 +3063,15 @@ const rekapSantriData = useMemo(() => {
                                       <Eye className="w-3.5 h-3.5" />
                                       <span>Detail</span>
                                     </button>
+                                    <button
+      onClick={() => handleDeleteLaporan(sub.id)}
+      className="px-2.5 py-1.5 bg-red-50 text-red-600 border border-red-200 rounded-lg hover:bg-red-100 text-xs font-medium cursor-pointer transition-colors"
+    >
+      Hapus
+    </button>
+    {/* ========================================== */}
+  </div>
+</td>
                                   </td>
                                 </tr>
                               ))}
