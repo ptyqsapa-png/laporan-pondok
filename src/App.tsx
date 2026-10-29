@@ -3059,20 +3059,25 @@ const rekapSantriData = useMemo(() => {
                                     {sub.general_notes || '-'}
                                   </td>
                                   <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-                                    <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-[11px] transition shadow-2xs" title="Lihat Detail Hasil Pengawasan" >
-                                      <Eye className="w-3.5 h-3.5" />
-                                      <span>Detail</span>
-                                    </button>
-                                    <button
+  <div className="inline-flex items-center justify-center gap-2">
+    {/* Tombol Detail */}
+    <button 
+      onClick={() => handleOpenSubmissionDetail(sub)} 
+      className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 text-xs font-medium cursor-pointer"
+    >
+      <Eye className="w-3.5 h-3.5" />
+      <span>Detail</span>
+    </button>
+
+    {/* Tombol Hapus */}
+    <button
       onClick={() => handleDeleteLaporan(sub.id)}
-      className="px-2.5 py-1.5 bg-red-50 text-red-600 border border-red-200 rounded-lg hover:bg-red-100 text-xs font-medium cursor-pointer transition-colors"
+      className="px-2.5 py-1.5 bg-red-50 text-red-600 border border-red-200 rounded-lg hover:bg-red-100 text-xs font-medium cursor-pointer"
     >
       Hapus
     </button>
-    {/* ========================================== */}
   </div>
 </td>
-                                  </td>
                                 </tr>
                               ))}
                             </tbody>
