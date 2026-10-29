@@ -3058,25 +3058,20 @@ const rekapSantriData = useMemo(() => {
                                   <td className="py-3 px-5 text-slate-500 text-[11px] italic truncate max-w-xs">
                                     {sub.general_notes || '-'}
                                   </td>
-                                  <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-  <div className="inline-flex items-center justify-center gap-1.5 flex-wrap">
-    {/* Tombol Detail */}
-    <button
-      onClick={() => handleOpenSubmissionDetail(sub)}
-      className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 text-xs font-medium cursor-pointer"
-    >
-      <Eye className="w-3.5 h-3.5" />
-      <span>Detail</span>
-    </button>
-
-    {/* Tombol Hapus */}
-    <button
-      onClick={() => handleDeleteLaporan(sub.id)}
-      className="px-2.5 py-1.5 bg-red-50 text-red-600 border border-red-200 rounded-lg hover:bg-red-100 text-xs font-medium cursor-pointer"
-    >
-      Hapus
-    </button>
-  </div>
+                                 <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+  <button 
+    onClick={() => handleOpenSubmissionDetail(sub)} 
+    className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs mr-1"
+  >
+    Detail
+  </button>
+  
+  <button
+    onClick={() => handleDeleteLaporan(sub.id)}
+    className="px-2 py-1 bg-red-50 text-red-600 rounded text-xs"
+  >
+    Hapus
+  </button>
 </td>
                                 </tr>
                               ))}
