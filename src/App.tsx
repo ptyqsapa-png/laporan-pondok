@@ -978,7 +978,7 @@ const handleDeleteLaporan = async (id: number | string) => {
         throw new Error('Gagal menghapus data di server');
       }
 
-      setLaporanKebersihanList((prevList: any[]) => prevList.filter((item) => item.id !== id));
+      setProgramSubmissions((prevList: any[]) => prevList.filter((item) => item.id !== id));
       
       if (typeof showToast === 'function') {
         showToast('Riwayat berhasil dihapus', 'success');
