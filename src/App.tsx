@@ -6891,15 +6891,15 @@ const rekapSantriData = useMemo(() => {
                 } catch (error: any) {
                   showToast('Gagal menyimpan ke database', 'error');
                 }
-              }}
-              className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition"
-            >
-              Simpan Perubahan
-            </button>
-          </div>
-        </div>
-      </div>
-    )}
+             </div>
+  </div>
+  <button
+    onClick={/* fungsi simpan Anda */}
+    className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition"
+  >
+    Simpan Perubahan
+  </button>
+</div>
       
   </div>
   );
