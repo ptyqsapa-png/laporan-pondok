@@ -964,43 +964,7 @@ const [spList, setSpList] = useState<any[]>([]); // Menyimpan opsi SP dinamis
       showToast('Gagal menghapus program di server', 'error');
     }
   };
-const handleDeleteLaporan = async (id: number | string) => {
-    const konfirmasi = window.confirm("Apakah Anda yakin ingin menghapus riwayat laporan ini?");
-    if (!konfirmasi) return;
 
-    try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
-        method: 'DELETE',
-        headers: reqHeaders,
-      });
-
-      if (!response.ok) {
-        throw new Error('Gagal menghapus data di server');
-      }
-
-      setProgramSubmissions((prevList: any[]) => prevList.filter((item) => item.id !== id));
-      
-      if (typeof showToast === 'function') {
-        showToast('Riwayat berhasil dihapus', 'success');
-      } else {
-        alert('Riwayat berhasil dihapus');
-      }
-
-      fetchSupabaseData(); // Refresh data setelah dihapus
-    } catch (error: any) {
-      console.error('Error deleting:', error);
-      if (typeof showToast === 'function') {
-        showToast('Gagal menghapus riwayat', 'error');
-      } else {
-        alert('Gagal menghapus riwayat');
-      }
-    }
-  };
-  // ===================================================
-
-  const fetchSupabaseData = async () => {
-    setIsLoading(true);
-    try {
   const fetchSupabaseData = async () => {
     setIsLoading(true);
     try {
@@ -3058,21 +3022,12 @@ const rekapSantriData = useMemo(() => {
                                   <td className="py-3 px-5 text-slate-500 text-[11px] italic truncate max-w-xs">
                                     {sub.general_notes || '-'}
                                   </td>
-                                 <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-  <button 
-    onClick={() => handleOpenSubmissionDetail(sub)} 
-    className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs mr-1"
-  >
-    Detail
-  </button>
-  
-  <button
-    onClick={() => handleDeleteLaporan(sub.id)}
-    className="px-2 py-1 bg-red-50 text-red-600 rounded text-xs"
-  >
-    Hapus
-  </button>
-</td>
+                                  <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+                                    <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-[11px] transition shadow-2xs" title="Lihat Detail Hasil Pengawasan" >
+                                      <Eye className="w-3.5 h-3.5" />
+                                      <span>Detail</span>
+                                    </button>
+                                  </td>
                                 </tr>
                               ))}
                             </tbody>
@@ -6891,10 +6846,16 @@ const rekapSantriData = useMemo(() => {
                 } catch (error: any) {
                   showToast('Gagal menyimpan ke database', 'error');
                 }
-         setEditFieldKey(null);
-    showToast('Konfigurasi kolom berhasil disimpan permanen!', 'success');
-  } catch (error: any) {
-    showToast('Gagal menyimpan ke database', 'error');
-  }
-}
+              }}
+              className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition"
+            >
+              Simpan Perubahan
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+      
+  </div>
+  );
 }
