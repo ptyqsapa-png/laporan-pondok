@@ -3028,6 +3028,26 @@ const rekapSantriData = useMemo(() => {
                                       <span>Detail</span>
                                     </button>
                                   </td>
+                                  <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+  <div className="flex items-center justify-center gap-1.5">
+    <button 
+      onClick={() => handleOpenSubmissionDetail(sub)} 
+      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
+      title="Lihat Detail"
+    >
+      <Eye className="w-3.5 h-3.5" />
+      <span>Detail</span>
+    </button>
+    <button 
+      onClick={() => handleDeleteSubmission(sub.id)} 
+      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
+      title="Hapus Riwayat"
+    >
+      <Trash2 className="w-3.5 h-3.5" />
+      <span>Hapus</span>
+    </button>
+  </div>
+</td>
                                 </tr>
                               ))}
                             </tbody>
