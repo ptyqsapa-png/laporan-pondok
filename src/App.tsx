@@ -3028,39 +3028,6 @@ const rekapSantriData = useMemo(() => {
                                       <span>Detail</span>
                                     </button>
                                   </td>
-                                  <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-  <div className="flex items-center justify-center gap-1.5">
-    <button 
-      onClick={() => handleOpenSubmissionDetail(sub)} 
-      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
-      title="Lihat Detail"
-    >
-      <Eye className="w-3.5 h-3.5" />
-      <span>Detail</span>
-    </button>
-    <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-  <div className="flex items-center justify-center gap-1.5">
-    {/* Tombol Detail */}
-    <button 
-      onClick={() => handleOpenSubmissionDetail(sub)} 
-      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
-      title="Lihat Detail"
-    >
-      <Eye className="w-3.5 h-3.5" />
-      <span>Detail</span>
-    </button>
-
-    {/* Tombol Hapus */}
-    <button 
-      onClick={() => handleDeleteSubmission(sub.id)} 
-      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
-      title="Hapus Riwayat"
-    >
-      <Trash2 className="w-3.5 h-3.5" />
-      <span>Hapus</span>
-    </button>
-  </div>
-</td>
                                 </tr>
                               ))}
                             </tbody>
@@ -3104,37 +3071,7 @@ const rekapSantriData = useMemo(() => {
                       </div>
                     </div>
                   )}
-const handleDeleteSubmission = async (id: number) => {
-    if (!window.confirm('Apakah Anda yakin ingin menghapus riwayat pengisian laporan ini?')) {
-      return;
-    }
 
-    // Optimistic update pada state lokal agar langsung hilang dari tabel
-    setSubmissions(prev => prev.filter(s => s.id !== id));
-    showToast('Riwayat laporan berhasil dihapus');
-
-    try {
-      // 1. Hapus data detail terkait di Supabase (jika ada)
-      await fetch(`${SUPABASE_URL}/rest/v1/submission_details?submission_id=eq.${id}`, {
-        method: 'DELETE',
-        headers: reqHeaders
-      }).catch(() => {});
-
-      // 2. Hapus data utama di tabel submissions
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
-        method: 'DELETE',
-        headers: reqHeaders
-      });
-
-      if (!res.ok) {
-        throw new Error('Gagal menghapus di server');
-      }
-    } catch (err) {
-      console.error('Error deleting submission:', err);
-      showToast('Gagal menghapus data di server', 'error');
-      fetchSupabaseData(); // Muat ulang data jika terjadi error
-    }
-  };
                   {/* TAB 4: CUSTOMIZE FORM */}
                   {activeSubTab === 'customize' && (
                     <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-xs space-y-6">
