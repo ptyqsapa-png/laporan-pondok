@@ -3039,7 +3039,7 @@ const rekapSantriData = useMemo(() => {
       <span>Detail</span>
     </button>
     <button 
-      onClick={() => handleDeleteSubmission(sub.id)} 
+      <button onClick={() => handleDeleteSubmission(sub.id)} ...>
       className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white font-semibold text-[11px] transition shadow-2xs"
       title="Hapus Riwayat"
     >
@@ -3091,7 +3091,37 @@ const rekapSantriData = useMemo(() => {
                       </div>
                     </div>
                   )}
+const handleDeleteSubmission = async (id: number) => {
+    if (!window.confirm('Apakah Anda yakin ingin menghapus riwayat pengisian laporan ini?')) {
+      return;
+    }
 
+    // Optimistic update pada state lokal agar langsung hilang dari tabel
+    setSubmissions(prev => prev.filter(s => s.id !== id));
+    showToast('Riwayat laporan berhasil dihapus');
+
+    try {
+      // 1. Hapus data detail terkait di Supabase (jika ada)
+      await fetch(`${SUPABASE_URL}/rest/v1/submission_details?submission_id=eq.${id}`, {
+        method: 'DELETE',
+        headers: reqHeaders
+      }).catch(() => {});
+
+      // 2. Hapus data utama di tabel submissions
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
+        method: 'DELETE',
+        headers: reqHeaders
+      });
+
+      if (!res.ok) {
+        throw new Error('Gagal menghapus di server');
+      }
+    } catch (err) {
+      console.error('Error deleting submission:', err);
+      showToast('Gagal menghapus data di server', 'error');
+      fetchSupabaseData(); // Muat ulang data jika terjadi error
+    }
+  };
                   {/* TAB 4: CUSTOMIZE FORM */}
                   {activeSubTab === 'customize' && (
                     <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-xs space-y-6">
