@@ -2360,14 +2360,20 @@ const rekapSantriData = useMemo(() => {
               </button>
               
               <button
-                onClick={() => setActiveTab('google_script')}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
-                  activeTab === 'google_script' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                onClick={() => {
+                  setNavTab('google_script'); // Menggunakan setNavTab yang benar
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  navTab === 'google_script' // Menggunakan navTab yang benar
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                 }`}
                 >
-                {/* Anda bisa menggunakan ikon Settings atau ikon lain yang tersedia */}
-                <Settings className="w-5 h-5" /> 
-                <span className="font-medium">Aplikasi GAS</span>
+                <div className="flex items-center gap-3 min-w-0">
+                  <Settings className="w-5 h-5 shrink-0" /> 
+                  {(isSidebarExpanded || isMobileMenuOpen) && <span className="truncate">Laporan Eksternal</span>}
+                </div>
               </button>
               
               {/* Tombol Menu Pengaturan Master Data */}
