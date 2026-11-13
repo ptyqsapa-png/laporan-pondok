@@ -46,7 +46,7 @@ const Menu = createIcon(<><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2=
 
 
 type TimeframeCategory = 'Harian' | 'Mingguan' | 'Bulanan' | 'Tahunan';
-type NavigationTab = 'dashboard' | 'ceklis' | 'laporan' | 'rekap_absensi' | 'pengaturan' | 'monitoring_kebersihan' | 'pelanggaran';
+type NavigationTab = 'dashboard' | 'ceklis' | 'laporan' | 'rekap_absensi' | 'pengaturan' | 'monitoring_kebersihan' | 'pelanggaran' | 'google_script';
 
 interface Division {
   id: number;
@@ -2357,6 +2357,17 @@ const rekapSantriData = useMemo(() => {
                     <span className="truncate">Pelanggaran Santri</span>
                   )}
                 </div>
+              </button>
+              
+              <button
+                onClick={() => setActiveTab('google_script')}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
+                  activeTab === 'google_script' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                >
+                {/* Anda bisa menggunakan ikon Settings atau ikon lain yang tersedia */}
+                <Settings className="w-5 h-5" /> 
+                <span className="font-medium">Aplikasi GAS</span>
               </button>
               
               {/* Tombol Menu Pengaturan Master Data */}
@@ -5386,6 +5397,29 @@ const rekapSantriData = useMemo(() => {
             );
           })()}
 
+        {navTab === 'google_script' && (() => {
+        return (
+          <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden p-4" style={{ height: 'calc(100vh - 120px)' }}>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-gray-800">Laporan Eksternal Google Apps Script</h2>
+              <button 
+                onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec', '_blank')}
+                className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                >
+                Buka di Tab Baru ↗
+              </button>
+            </div>
+            <div className="w-full flex-1 border border-gray-200 rounded-xl overflow-hidden">
+              <iframe
+                src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
+                title="Google Apps Script Web"
+                className="w-full h-full border-0"
+                />
+            </div>
+          </div>
+        );
+      })()}
+        
           {navTab === 'laporan' && (
             <div className="max-w-7xl mx-auto w-full space-y-6">
               
