@@ -2361,18 +2361,18 @@ const rekapSantriData = useMemo(() => {
               
               <button
                 onClick={() => {
-                  setNavTab('google_script'); // Menggunakan setNavTab yang benar
+                  setNavTab('google_script');
                   setIsMobileMenuOpen(false);
                 }}
                 className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                  navTab === 'google_script' // Menggunakan navTab yang benar
+                  navTab === 'google_script'
                   ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                 }`}
                 >
                 <div className="flex items-center gap-3 min-w-0">
                   <Settings className="w-5 h-5 shrink-0" /> 
-                  {(isSidebarExpanded || isMobileMenuOpen) && <span className="truncate">Laporan Eksternal</span>}
+                  {(isSidebarExpanded || isMobileMenuOpen) && <span className="truncate">Perizinan Santri</span>}
                 </div>
               </button>
               
@@ -5407,7 +5407,7 @@ const rekapSantriData = useMemo(() => {
         return (
           <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden p-4" style={{ height: 'calc(100vh - 120px)' }}>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-gray-800">Laporan Eksternal Google Apps Script</h2>
+              <h2 className="text-xl font-bold text-gray-800">Perizinan Santri</h2>
               <button 
                 onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec', '_blank')}
                 className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
@@ -5418,7 +5418,7 @@ const rekapSantriData = useMemo(() => {
             <div className="w-full flex-1 border border-gray-200 rounded-xl overflow-hidden">
               <iframe
                 src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
-                title="Google Apps Script Web"
+                title="Perizinan Santri Web"
                 className="w-full h-full border-0"
                 />
             </div>
