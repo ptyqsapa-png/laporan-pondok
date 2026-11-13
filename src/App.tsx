@@ -43,6 +43,7 @@ const Settings = createIcon(<><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1
 const Edit = createIcon(<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></>);
 const Search = createIcon(<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>); // <--- TEMPEL DI SINI
 const Menu = createIcon(<><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>);
+const ExternalLink = createIcon(<><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></>);
 
 
 type TimeframeCategory = 'Harian' | 'Mingguan' | 'Bulanan' | 'Tahunan';
@@ -2371,7 +2372,8 @@ const rekapSantriData = useMemo(() => {
                 }`}
                 >
                 <div className="flex items-center gap-3 min-w-0">
-                  <Settings className="w-5 h-5 shrink-0" /> 
+                  {/* Menggunakan ikon dengan warna hijau toska (text-emerald-400) */}
+                  <ExternalLink className="w-5 h-5 shrink-0 text-emerald-400" /> 
                   {(isSidebarExpanded || isMobileMenuOpen) && <span className="truncate">Perizinan Santri</span>}
                 </div>
               </button>
