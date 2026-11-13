@@ -5405,8 +5405,8 @@ const rekapSantriData = useMemo(() => {
 
         {navTab === 'google_script' && (() => {
         return (
-          <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden p-4" style={{ height: 'calc(100vh - 120px)' }}>
-            <div className="flex justify-between items-center mb-4">
+          <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden p-4 min-h-[calc(100vh-100px)]">
+            <div className="flex justify-between items-center mb-4 px-2">
               <h2 className="text-xl font-bold text-gray-800">Perizinan Santri</h2>
               <button 
                 onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec', '_blank')}
@@ -5415,7 +5415,8 @@ const rekapSantriData = useMemo(() => {
                 Buka di Tab Baru ↗
               </button>
             </div>
-            <div className="w-full flex-1 border border-gray-200 rounded-xl overflow-hidden">
+            {/* Mengubah kontainer iframe agar melebar penuh secara responsif */}
+            <div className="w-full flex-1 border border-gray-200 rounded-xl overflow-hidden bg-slate-50" style={{ minHeight: '80vh' }}>
               <iframe
                 src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
                 title="Perizinan Santri Web"
