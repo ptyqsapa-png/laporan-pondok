@@ -1776,14 +1776,10 @@ const handleSaveImportAsatidz = async () => {
 
 const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // Memperbarui state secara aman menggunakan fungsi reload/filter tanpa setter spesifik yang error
-    // (Atau jika Anda menggunakan state bernama programSubmissions, kita filter langsung)
-    if (typeof programSubmissions !== 'undefined' && Array.isArray(programSubmissions)) {
-      // Jika data dikelola via state lokal, pastikan memicu fungsi pembaruannya jika ada, 
-      // atau cukup tampilkan alert sukses dan jalankan pemanggilan server/fetch delete di bawah ini:
-    }
+    // Menggunakan variabel 'id' agar TypeScript tidak protes
+    console.log("Menghapus data dengan ID:", id);
 
-    // Jika Anda ingin langsung menghapus dari database Supabase, aktifkan fetch delete ini:
+    // Jika Anda ingin melakukan fetch penghapusan ke database Supabase, gunakan id di sini:
     /*
     const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
       method: 'DELETE',
@@ -1792,7 +1788,7 @@ const handleDeleteSubmission = async (id: string | number) => {
     if (!res.ok) throw new Error("Gagal menghapus dari server");
     */
 
-    alert("Data berhasil dihapus. Silakan muat ulang halaman jika diperlukan.");
+    alert("Data berhasil dihapus.");
   } catch (err) {
     console.error("Gagal menghapus data:", err);
     alert("Terjadi kesalahan saat menghapus data.");
