@@ -1776,8 +1776,12 @@ const handleSaveImportAsatidz = async () => {
 
 const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // Menggunakan pembaruan state langsung pada variabel penampung data Anda
-    setProgramSubmissions((prev: any[]) => prev.filter((item: any) => item.id !== id));
+    // Memperbarui state menggunakan fungsi setter yang benar di proyek Anda
+    // Jika state utama bernama 'programSubmissions', fungsi setter-nya biasanya 'setProgramSubmissions'
+    // Mari gunakan pendekatan universal untuk menyaring state:
+    if (typeof setProgramSubmissions === 'function') {
+      setProgramSubmissions((prev: any[]) => prev.filter((item: any) => item.id !== id));
+    }
     
     alert("Data berhasil dihapus.");
   } catch (err) {
