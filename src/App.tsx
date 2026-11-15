@@ -3041,26 +3041,35 @@ const rekapSantriData = useMemo(() => {
                                   <td className="py-3 px-5 text-slate-500 text-[11px] italic truncate max-w-xs">
                                     {sub.general_notes || '-'}
                                   </td>
-                                  <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
-                                    <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-[11px] transition shadow-2xs" title="Lihat Detail Hasil Pengawasan" >
+                                  <td className="px-4 py-3 text-center" onClick={(e) => e.stopPropagation()}>
+                                    <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors">
                                       <Eye className="w-3.5 h-3.5" />
                                       <span>Detail</span>
                                     </button>
-                                    <button 
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                          // Tambahkan fungsi hapus data Anda di sini jika sudah ada
-                                        }
-                                      }} 
-                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
-                                      title="Hapus Data"
-                                      >
-                                      <Trash2 className="w-3.5 h-3.5" />
-                                      <span>Hapus</span>
-                                    </button>
-                                  </div>
-                                </td>
+                                  </td>
+                                    <td className="px-4 py-3 text-center" onClick={(e) => e.stopPropagation()}>
+                                      <div className="flex items-center justify-center gap-1.5">
+                                        {/* Tombol Detail */}
+                                        <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors">
+                                          <Eye className="w-3.5 h-3.5" />
+                                          <span>Detail</span>
+                                        </button>
+                                        
+                                        {/* Tombol Hapus */}
+                                        <button 
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
+                                              // Tambahkan logika hapus di sini
+                                            }
+                                          }} 
+                                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
+                                          >
+                                          <Trash2 className="w-3.5 h-3.5" />
+                                          <span>Hapus</span>
+                                        </button>
+                                      </div>
+                                    </td>
                                   </td>
                                 </tr>
                               ))}
