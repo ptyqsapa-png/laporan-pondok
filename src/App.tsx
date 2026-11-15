@@ -3074,7 +3074,6 @@ const rekapSantriData = useMemo(() => {
                                       </button>
                                     </div>
                                   </td>
-                                  </td>
                                 </tr>
                               ))}
                             </tbody>
