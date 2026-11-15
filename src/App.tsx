@@ -3049,7 +3049,7 @@ const rekapSantriData = useMemo(() => {
                                   </td>
                                   <td className="px-4 py-3 text-center" onClick={(e) => e.stopPropagation()}>
                                     <div className="flex items-center justify-center gap-1.5">
-                                      {/* Tombol Detail */}
+                                      {/* Tombol Detail (Cukup 1 saja di sini) */}
                                       <button 
                                         onClick={() => handleOpenSubmissionDetail(sub)} 
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors"
