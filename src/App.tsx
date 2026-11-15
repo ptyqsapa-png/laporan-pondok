@@ -1774,6 +1774,25 @@ const handleSaveImportAsatidz = async () => {
     }
   };
 
+  const handleDeleteSubmission = async (id: string) => {
+  try {
+    // Memperbarui state lokal agar data langsung hilang dari tabel
+    setProgramSubmissions(prev => prev.filter(item => item.id !== id));
+    // Jika data juga perlu dihapus dari database Supabase, aktifkan kode di bawah ini:
+    /*
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
+    method: 'DELETE',
+    headers: reqHeaders
+    });
+    if (!res.ok) throw new Error("Gagal menghapus dari server");
+    */
+    
+    alert("Data berhasil dihapus.");
+  } catch (err) {
+    console.error("Gagal menghapus data:", err);
+    alert("Terjadi kesalahan saat menghapus data.");
+  }
+  };
   const handleOpenSubmissionDetail = async (sub: Submission) => {
   setSelectedSubmissionForDetail(sub);
   setDetailItemsLoading(true);
