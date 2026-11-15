@@ -1774,25 +1774,18 @@ const handleSaveImportAsatidz = async () => {
     }
   };
 
-  const handleDeleteSubmission = async (id: string) => {
+const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // Memperbarui state lokal agar data langsung hilang dari tabel
-    setProgramSubmissions(prev => prev.filter(item => item.id !== id));
-    // Jika data juga perlu dihapus dari database Supabase, aktifkan kode di bawah ini:
-    /*
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
-    method: 'DELETE',
-    headers: reqHeaders
-    });
-    if (!res.ok) throw new Error("Gagal menghapus dari server");
-    */
+    // Sesuaikan dengan setter state riwayat yang benar di proyek Anda
+    // Contoh jika menggunakan setter state penyaring:
+    setProgramSubmissions(prev => prev.filter((item: any) => item.id !== id));
     
     alert("Data berhasil dihapus.");
   } catch (err) {
     console.error("Gagal menghapus data:", err);
     alert("Terjadi kesalahan saat menghapus data.");
   }
-  };
+};
   const handleOpenSubmissionDetail = async (sub: Submission) => {
   setSelectedSubmissionForDetail(sub);
   setDetailItemsLoading(true);
@@ -3082,16 +3075,7 @@ const rekapSantriData = useMemo(() => {
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                            // 1. Jika menggunakan state React lokal (misal: programSubmissions), hapus dengan filter:
-                                            // setProgramSubmissions(prev => prev.filter(item => item.id !== sub.id));
-                                            
-                                            // 2. Jika menggunakan fungsi dari props atau handler khusus (misal: handleDelete(sub.id)):
-                                            if (typeof handleDeleteSubmission === 'function') {
-                                              handleDeleteSubmission(sub.id);
-                                            } else {
-                                              // Fallback: hapus dari state lokal jika nama fungsi berbeda
-                                              console.log("Menghapus item dengan ID:", sub.id);
-                                            }
+                                            handleDeleteSubmission(sub.id); // <--- LETAKKAN sub.id DI DALAM KURUNG DI SINI
                                           }
                                         }} 
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
