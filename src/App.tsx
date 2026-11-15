@@ -3046,6 +3046,21 @@ const rekapSantriData = useMemo(() => {
                                       <Eye className="w-3.5 h-3.5" />
                                       <span>Detail</span>
                                     </button>
+                                    <button 
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
+                                          // Panggil fungsi hapus data Anda di sini, contoh: handleDeleteSubmission(sub.id)
+                                        }
+                                      }} 
+                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
+                                      title="Hapus Data"
+                                      >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                      <span>Hapus</span>
+                                    </button>
+                                  </div>
+                                </td>
                                   </td>
                                 </tr>
                               ))}
