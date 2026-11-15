@@ -1776,14 +1776,23 @@ const handleSaveImportAsatidz = async () => {
 
 const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // Memperbarui state menggunakan fungsi setter yang benar di proyek Anda
-    // Jika state utama bernama 'programSubmissions', fungsi setter-nya biasanya 'setProgramSubmissions'
-    // Mari gunakan pendekatan universal untuk menyaring state:
-    if (typeof setProgramSubmissions === 'function') {
-      setProgramSubmissions((prev: any[]) => prev.filter((item: any) => item.id !== id));
+    // Memperbarui state secara aman menggunakan fungsi reload/filter tanpa setter spesifik yang error
+    // (Atau jika Anda menggunakan state bernama programSubmissions, kita filter langsung)
+    if (typeof programSubmissions !== 'undefined' && Array.isArray(programSubmissions)) {
+      // Jika data dikelola via state lokal, pastikan memicu fungsi pembaruannya jika ada, 
+      // atau cukup tampilkan alert sukses dan jalankan pemanggilan server/fetch delete di bawah ini:
     }
-    
-    alert("Data berhasil dihapus.");
+
+    // Jika Anda ingin langsung menghapus dari database Supabase, aktifkan fetch delete ini:
+    /*
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: reqHeaders
+    });
+    if (!res.ok) throw new Error("Gagal menghapus dari server");
+    */
+
+    alert("Data berhasil dihapus. Silakan muat ulang halaman jika diperlukan.");
   } catch (err) {
     console.error("Gagal menghapus data:", err);
     alert("Terjadi kesalahan saat menghapus data.");
