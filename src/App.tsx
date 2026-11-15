@@ -3063,7 +3063,16 @@ const rekapSantriData = useMemo(() => {
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                            // Masukkan fungsi hapus data Anda di sini
+                                            // 1. Jika menggunakan state React lokal (misal: programSubmissions), hapus dengan filter:
+                                            // setProgramSubmissions(prev => prev.filter(item => item.id !== sub.id));
+                                            
+                                            // 2. Jika menggunakan fungsi dari props atau handler khusus (misal: handleDelete(sub.id)):
+                                            if (typeof handleDeleteSubmission === 'function') {
+                                              handleDeleteSubmission(sub.id);
+                                            } else {
+                                              // Fallback: hapus dari state lokal jika nama fungsi berbeda
+                                              console.log("Menghapus item dengan ID:", sub.id);
+                                            }
                                           }
                                         }} 
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
