@@ -3050,7 +3050,7 @@ const rekapSantriData = useMemo(() => {
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                          // Panggil fungsi hapus data Anda di sini, contoh: handleDeleteSubmission(sub.id)
+                                          // Tambahkan fungsi hapus data Anda di sini jika sudah ada
                                         }
                                       }} 
                                       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
