@@ -5445,30 +5445,31 @@ const rekapSantriData = useMemo(() => {
               </div>
             );
           })()}
-
-        {navTab === 'google_script' && (() => {
-        return (
-          <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm overflow-hidden p-4 min-h-[calc(100vh-100px)]">
-            <div className="flex justify-between items-center mb-4 px-2">
-              <h2 className="text-xl font-bold text-gray-800">Perizinan Santri</h2>
-              <button 
-                onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec', '_blank')}
-                className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+        
+        {/* TAMPILAN MENU PERIZINAN SANTRI (INSTANT & RESPONSIF PENUH) */}
+        <div className={navTab === 'google_script' ? 'block w-full h-full' : 'hidden'}>
+          <div className="w-full h-full flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-6">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <h2 className="text-lg md:text-xl font-bold text-slate-800">Perizinan Santri</h2>
+              <button
+                onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wita-GkAiZ5pIlkCcz_L13zH8a-MZeAc_p7b_u9gdODEgtX/exec', '_blank')}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-xl text-xs md:text-sm font-semibold transition-colors"
                 >
-                Buka di Tab Baru ↗
+                <span>Buka di Tab Baru</span>
+                <ExternalLink className="w-4 h-4" />
               </button>
             </div>
-            {/* Mengubah kontainer iframe agar melebar penuh secara responsif */}
-            <div className="w-full flex-1 border border-gray-200 rounded-xl overflow-hidden bg-slate-50" style={{ minHeight: '80vh' }}>
+            
+            <div className="w-full flex-1 border border-slate-200 rounded-xl overflow-hidden bg-slate-50 min-h-[78vh]">
               <iframe
-                src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
-                title="Perizinan Santri Web"
-                className="w-full h-full border-0"
+                src="https://script.google.com/macros/s/AKfycby3b5wita-GkAiZ5pIlkCcz_L13zH8a-MZeAc_p7b_u9gdODEgtX/exec"
+                title="Perizinan Santri"
+                className="w-full h-full border-0 min-h-[750px]"
+                loading="eager"
                 />
             </div>
           </div>
-        );
-      })()}
+        </div>
         
           {navTab === 'laporan' && (
             <div className="max-w-7xl mx-auto w-full space-y-6">
