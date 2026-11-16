@@ -44,8 +44,6 @@ const Edit = createIcon(<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2
 const Search = createIcon(<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>); // <--- TEMPEL DI SINI
 const Menu = createIcon(<><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>);
 const ExternalLink = createIcon(<><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></>);
-const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-const [itemToDeleteId, setItemToDeleteId] = useState<string | number | null>(null);
 
 
 type TimeframeCategory = 'Harian' | 'Mingguan' | 'Bulanan' | 'Tahunan';
