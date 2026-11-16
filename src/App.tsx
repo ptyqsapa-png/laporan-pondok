@@ -5452,7 +5452,7 @@ const rekapSantriData = useMemo(() => {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-3 shrink-0">
               <h2 className="text-lg md:text-xl font-bold text-slate-800">Perizinan Santri</h2>
               <button
-                onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wita-GkAiZ5pIlkCcz_L13zH8a-MZeAc_p7b_u9gdODEgtX/exec', '_blank')}
+                onClick={() => window.open('https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec', '_blank')}
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-xl text-xs md:text-sm font-semibold transition-colors"
                 >
                 <span>Buka di Tab Baru</span>
@@ -5463,7 +5463,7 @@ const rekapSantriData = useMemo(() => {
             {/* Area Iframe Full Lebar */}
             <div className="w-full flex-1 border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
               <iframe
-                src="https://script.google.com/macros/s/AKfycby3b5wita-GkAiZ5pIlkCcz_L13zH8a-MZeAc_p7b_u9gdODEgtX/exec"
+                src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
                 title="Perizinan Santri"
                 className="w-full h-full border-0"
                 loading="eager"
