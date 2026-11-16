@@ -1776,17 +1776,22 @@ const handleSaveImportAsatidz = async () => {
 
 const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // Menggunakan variabel 'id' agar TypeScript tidak protes
-    console.log("Menghapus data dengan ID:", id);
-
-    // Jika Anda ingin melakukan fetch penghapusan ke database Supabase, gunakan id di sini:
-    /*
+    // 1. Jika Anda ingin menghapus langsung dari server/database Supabase:
     const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
       method: 'DELETE',
       headers: reqHeaders
     });
+    
     if (!res.ok) throw new Error("Gagal menghapus dari server");
-    */
+
+    // 2. Memanggil ulang fungsi untuk mengambil data terbaru dari server (biasanya fetchSubmissions / loadData)
+    // Sesuaikan nama fungsi pemuat data di proyek Anda, contoh: fetchSubmissions();
+    if (typeof fetchSubmissions === 'function') {
+      fetchSubmissions();
+    } else {
+      // Fallback jika tidak ada fungsi fetch ulang, muat ulang halaman otomatis
+      window.location.reload();
+    }
 
     alert("Data berhasil dihapus.");
   } catch (err) {
