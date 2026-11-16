@@ -5462,7 +5462,7 @@ const rekapSantriData = useMemo(() => {
             
             <div className="w-full flex-1 border border-slate-200 rounded-xl overflow-hidden bg-slate-50 min-h-[78vh]">
               <iframe
-                src="https://script.google.com/macros/s/AKfycby3b5wita-GkAiZ5pIlkCcz_L13zH8a-MZeAc_p7b_u9gdODEgtX/exec"
+                src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
                 title="Perizinan Santri"
                 className="w-full h-full border-0 min-h-[750px]"
                 loading="eager"
