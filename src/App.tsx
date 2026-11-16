@@ -5446,9 +5446,9 @@ const rekapSantriData = useMemo(() => {
             );
           })()}
         
-        {/* TAMPILAN MENU PERIZINAN SANTRI - FULL DESKTOP & INSTANT */}
+        {/* TAMPILAN MENU PERIZINAN SANTRI - FULL DESKTOP FORCED */}
         <div className={navTab === 'google_script' ? 'block w-full h-full' : 'hidden'}>
-          <div className="w-full h-[calc(100vh-100px)] flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 p-3 md:p-5">
+          <div className="w-full h-[calc(100vh-80px)] flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-3 shrink-0">
               <h2 className="text-lg md:text-xl font-bold text-slate-800">Perizinan Santri</h2>
               <button
@@ -5460,12 +5460,12 @@ const rekapSantriData = useMemo(() => {
               </button>
             </div>
             
-            {/* Area Iframe Full Lebar */}
-            <div className="w-full flex-1 border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
+            {/* Area Iframe dengan Lebar Penuh Maksimal */}
+            <div className="w-full flex-1 border border-slate-200 rounded-xl overflow-hidden bg-slate-50 relative">
               <iframe
                 src="https://script.google.com/macros/s/AKfycby3b5wIta-GkAiZ5pIlkCcz_Ll3zH8a-MZeAc_pC7b_u9gdoDEgtXZg6Tur2wS3NG2K/exec"
                 title="Perizinan Santri"
-                className="w-full h-full border-0"
+                className="w-full h-full border-0 absolute inset-0"
                 loading="eager"
                 />
             </div>
