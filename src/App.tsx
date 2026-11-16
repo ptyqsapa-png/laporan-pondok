@@ -44,6 +44,8 @@ const Edit = createIcon(<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2
 const Search = createIcon(<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>); // <--- TEMPEL DI SINI
 const Menu = createIcon(<><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>);
 const ExternalLink = createIcon(<><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></>);
+const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+const [itemToDeleteId, setItemToDeleteId] = useState<string | number | null>(null);
 
 
 type TimeframeCategory = 'Harian' | 'Mingguan' | 'Bulanan' | 'Tahunan';
@@ -3075,9 +3077,8 @@ const rekapSantriData = useMemo(() => {
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation();
-                                          if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                            handleDeleteSubmission(sub.id);
-                                          }
+                                          setItemToDeleteId(sub.id);
+                                          setDeleteModalOpen(true);
                                         }}
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
                                         title="Hapus Data"
@@ -6516,6 +6517,47 @@ const rekapSantriData = useMemo(() => {
               className="px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xs transition"
             >
               Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* MODAL KONFIRMASI HAPUS */}
+      {deleteModalOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center transform transition-all animate-in fade-in zoom-in-95">
+          <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
+            <Trash2 className="w-6 h-6" />
+          </div>
+          <h3 className="text-lg font-bold text-slate-900 mb-2">Konfirmasi Hapus Data</h3>
+          <p className="text-sm text-slate-600 mb-6">
+            Apakah Anda yakin ingin menghapus data log riwayat ini? Tindakan ini tidak dapat dibatalkan.
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                setDeleteModalOpen(false);
+                setItemToDeleteId(null);
+              }}
+              className="px-4 py-2 rounded-xl border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors"
+              >
+              Batal
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                if (itemToDeleteId !== null) {
+                  const targetId = itemToDeleteId;
+                  setDeleteModalOpen(false);
+                  setItemToDeleteId(null);
+                  await handleDeleteSubmission(targetId);
+                }
+              }}
+              className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20"
+              >
+              Ya, Hapus
             </button>
           </div>
         </div>
