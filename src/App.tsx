@@ -1776,7 +1776,7 @@ const handleSaveImportAsatidz = async () => {
 
 const handleDeleteSubmission = async (id: string | number) => {
   try {
-    // 1. Jika Anda ingin menghapus langsung dari server/database Supabase:
+    // 1. Kirim perintah hapus ke database Supabase
     const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions?id=eq.${id}`, {
       method: 'DELETE',
       headers: reqHeaders
@@ -1784,16 +1784,10 @@ const handleDeleteSubmission = async (id: string | number) => {
     
     if (!res.ok) throw new Error("Gagal menghapus dari server");
 
-    // 2. Memanggil ulang fungsi untuk mengambil data terbaru dari server (biasanya fetchSubmissions / loadData)
-    // Sesuaikan nama fungsi pemuat data di proyek Anda, contoh: fetchSubmissions();
-    if (typeof fetchSubmissions === 'function') {
-      fetchSubmissions();
-    } else {
-      // Fallback jika tidak ada fungsi fetch ulang, muat ulang halaman otomatis
-      window.location.reload();
-    }
-
     alert("Data berhasil dihapus.");
+    
+    // 2. Muat ulang halaman secara otomatis agar tabel langsung ter-refresh dan data hilang
+    window.location.reload();
   } catch (err) {
     console.error("Gagal menghapus data:", err);
     alert("Terjadi kesalahan saat menghapus data.");
