@@ -3060,17 +3060,11 @@ const rekapSantriData = useMemo(() => {
                                   <td className="py-3 px-5 text-slate-500 text-[11px] italic truncate max-w-xs">
                                     {sub.general_notes || '-'}
                                   </td>
-                                  <td className="px-4 py-3 text-center" onClick={(e) => e.stopPropagation()}>
-                                    <button onClick={() => handleOpenSubmissionDetail(sub)} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors">
-                                      <Eye className="w-3.5 h-3.5" />
-                                      <span>Detail</span>
-                                    </button>
-                                  </td>
-                                  <td className="px-4 py-3 text-center" onClick={(e) => e.stopPropagation()}>
-                                    <div className="flex items-center justify-center gap-1.5">
-                                      {/* Tombol Detail (Cukup 1 saja di sini) */}
-                                      <button 
-                                        onClick={() => handleOpenSubmissionDetail(sub)} 
+                                  <td className="px-4 py-3 text-sm whitespace-nowrap">
+                                    <div className="flex items-center gap-2">
+                                      {/* Tombol Detail */}
+                                      <button
+                                        onClick={() => handleOpenSubmissionDetail(sub)}
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors"
                                         >
                                         <Eye className="w-3.5 h-3.5" />
@@ -3078,13 +3072,13 @@ const rekapSantriData = useMemo(() => {
                                       </button>
                                       
                                       {/* Tombol Hapus */}
-                                      <button 
+                                      <button
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           if (window.confirm("Apakah Anda yakin ingin menghapus data log riwayat ini?")) {
-                                            handleDeleteSubmission(sub.id); // <--- LETAKKAN sub.id DI DALAM KURUNG DI SINI
+                                            handleDeleteSubmission(sub.id);
                                           }
-                                        }} 
+                                        }}
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 text-xs font-medium transition-colors"
                                         title="Hapus Data"
                                         >
