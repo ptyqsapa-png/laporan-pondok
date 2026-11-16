@@ -290,6 +290,8 @@ function MainAppContent() {
   const [isSidebarPinned, setIsSidebarPinned] = useState<boolean>(false);
   const [isSidebarHovered, setIsSidebarHovered] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [itemToDeleteId, setItemToDeleteId] = useState<string | number | null>(null);
 
   const [divisions, setDivisions] = useState<Division[]>(INITIAL_DIVISIONS);
   const [activeDivisionId, setActiveDivisionId] = useState<number>(1);
