@@ -2002,7 +2002,7 @@ const handleDeleteSubmission = async (id: string | number) => {
         tanggal: formPlgTanggal,
         santri_id: id,
         nama: s?.nama || '-',
-        jenjang: s?.kelas?.includes('SMA') ? 'SMA' : 'SMP', 
+        jenjang: s?.kelas?.includes('SMA') ? 'SMA' : 'SMA', 
         kelas: s?.kelas || '-',
         halaqoh: s?.halaqoh || '-',
         kamar: s?.halaqoh || '-', 
@@ -4779,7 +4779,7 @@ const rekapSantriData = useMemo(() => {
                                <div className="flex-1 text-xs">
                                  <span className="font-bold text-slate-800">{s.nama}</span>
                                  <span className="text-[10px] text-slate-400 ml-2">
-                                   ({s.kelas?.includes('SMA') ? 'SMA' : 'SMP'} | {s.kelas} | {s.halaqoh})
+                                   ({s.kelas?.includes('SMA') ? 'SMA' : 'SMA'} | {s.kelas} | {s.halaqoh})
                                  </span>
                                </div>
                              </label>
