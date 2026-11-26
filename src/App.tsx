@@ -2465,8 +2465,8 @@ const rekapSantriData = useMemo(() => {
 
       {/* MAIN CONTENT WORKSPACE */}
       <main
-        className={`flex-1 min-w-0 w-full max-w-none h-screen overflow-y-auto pb-24 ml-0 ${
-          isSidebarExpanded ? 'md:ml-72' : 'md:ml-20'
+        className={`h-screen overflow-y-auto overflow-x-hidden pb-24 ml-0 ${
+          isSidebarExpanded ? 'md:ml-72 md:w-[calc(100%-18rem)]' : 'md:ml-20 md:w-[calc(100%-5rem)]'
         }`}
         >
         {/* Mobile Top Navigation Header */}
