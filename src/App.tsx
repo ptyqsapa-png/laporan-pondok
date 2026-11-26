@@ -5474,7 +5474,7 @@ const rekapSantriData = useMemo(() => {
         </div>
         
           {navTab === 'laporan' && (
-            <div className="max-w-7xl mx-auto w-full space-y-6">
+            <div className="w-full max-w-none mx-auto w-full space-y-6">
               
               {/* Header Banner */}
               <div className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-700 rounded-3xl p-6 text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -5649,7 +5649,7 @@ const rekapSantriData = useMemo(() => {
       const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
     
       return (
-        <div className="space-y-4 sm:space-y-6 max-w-[100vw] sm:max-w-7xl mx-auto overflow-hidden">
+        <div className="space-y-4 sm:space-y-6 max-w-[100vw] sm:w-full max-w-none mx-auto overflow-hidden">
           
           {/* Header & Tab Sub-Menu */}
           <div className="bg-[#0f172a] p-4 sm:p-5 rounded-3xl shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -5964,7 +5964,7 @@ const rekapSantriData = useMemo(() => {
       
           {}
           {navTab === 'pengaturan' && (
-            <div className="max-w-7xl mx-auto w-full space-y-6">
+            <div className="w-full max-w-none mx-auto w-full space-y-6">
               
               <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
