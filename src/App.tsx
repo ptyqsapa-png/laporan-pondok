@@ -2465,7 +2465,7 @@ const rekapSantriData = useMemo(() => {
 
       {/* MAIN CONTENT WORKSPACE */}
       <main
-        className={`h-screen overflow-y-auto pb-24 ml-0 ${
+        className={`h-screen overflow-y-auto overflow-x-hidden pb-24 ml-0 ${
           isSidebarExpanded ? 'md:ml-72' : 'md:ml-20'
         }`}
         >
@@ -2491,11 +2491,11 @@ const rekapSantriData = useMemo(() => {
           </button>
         </div>
 
-        <div className="p-2.5 sm:p-6 lg:p-8 space-y-3.5 sm:space-y-6 max-w-full overflow-x-hidden">
+        <div className="p-2.5 sm:p-6 lg:p-8 space-y-3.5 sm:space-y-6 w-full max-w-none overflow-x-hidden">
         </div>
           {}
           {navTab === 'ceklis' && (
-            <div className="w-full max-w-none mx-auto w-full space-y-4 sm:space-y-6">
+            <div className="w-full max-w-none space-y-4 sm:space-y-6">
               
               {/* Header & Filter Ringkas 1 Baris (Responsif Mobile) */}
               <div className="bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3">
