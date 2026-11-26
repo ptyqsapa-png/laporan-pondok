@@ -2246,7 +2246,7 @@ const rekapSantriData = useMemo(() => {
       <aside
         onMouseEnter={() => setIsSidebarHovered(true)}
         onMouseLeave={() => setIsSidebarHovered(false)}
-        className={`fixed top-0 left-0 bottom-0 z-50 bg-[#0b132b] text-slate-300 transition-all duration-300 flex flex-col justify-between shadow-2xl ${
+        className={`fixed top-0 left-0 bottom-0 z-50 bg-[#0b132b] text-slate-300 transition-[width] duration-200 flex flex-col justify-between shadow-2xl ${
           isMobileMenuOpen ? 'translate-x-0 w-72' : '-translate-x-full md:translate-x-0'
         } ${isSidebarExpanded ? 'md:w-72' : 'md:w-20'}`}
       >
@@ -2495,7 +2495,7 @@ const rekapSantriData = useMemo(() => {
         </div>
           {}
           {navTab === 'ceklis' && (
-            <div className="max-w-7xl mx-auto w-full space-y-4 sm:space-y-6">
+            <div className="w-full max-w-none mx-auto w-full space-y-4 sm:space-y-6">
               
               {/* Header & Filter Ringkas 1 Baris (Responsif Mobile) */}
               <div className="bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3">
@@ -3451,7 +3451,7 @@ const rekapSantriData = useMemo(() => {
           {}
          {/* TAB: MONITORING KEBERSIHAN NATIVE */}
           {navTab === 'monitoring_kebersihan' && (
-            <div className="max-w-7xl mx-auto w-full space-y-4">
+            <div className="w-full max-w-none mx-auto w-full space-y-4">
               
               {/* Header E-Kebersihan & Tab Navigasi Lengkap */}
               <div className="bg-emerald-700 rounded-3xl p-4 sm:p-6 text-white shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -3711,7 +3711,7 @@ const rekapSantriData = useMemo(() => {
       {/* Modal Riwayat Total Kasus Kotor */}
           {isRiwayatKotorModalOpen && (
             <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={() => setIsRiwayatKotorModalOpen(false)}>
-              <div className="bg-white rounded-3xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
+              <div className="bg-white rounded-3xl w-full w-full max-w-none max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
                 
                 {/* Header Modal */}
                 <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
@@ -4283,7 +4283,7 @@ const rekapSantriData = useMemo(() => {
           {/* BATAS MENU KEBERSIHAN BERAKHIR - MULAI MENU DASHBOARD       */}
           {/* ========================================================= */}
          {navTab === 'pelanggaran' && (
-            <div className="max-w-7xl mx-auto w-full space-y-4">
+            <div className="w-full max-w-none mx-auto w-full space-y-4">
               {/* Header Aplikasi Pelanggaran */}
               <div className="bg-emerald-900 rounded-3xl p-4 sm:p-6 text-white shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-center space-x-3">
@@ -4626,7 +4626,7 @@ const rekapSantriData = useMemo(() => {
               {/* ========================================= */}
               {dashCardModal && (
                   <div className="fixed inset-0 z-[999] bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in">
-                      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[90vh]">
+                      <div className="bg-white rounded-2xl shadow-2xl w-full w-full max-w-none overflow-hidden flex flex-col max-h-[90vh]">
                           
                           {/* Header Modal */}
                           <div className="bg-[#1e293b] px-6 py-4 flex items-center justify-between text-white shrink-0">
@@ -4719,7 +4719,7 @@ const rekapSantriData = useMemo(() => {
                             
               {/* KONTEN 1: INPUT PELANGGARAN */}
               {pelanggaranSubTab === 'input' && (
-                <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 w-full max-w-none mx-auto">
                   <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-3 flex items-center gap-2">
                     <ClipboardCheck className="w-5 h-5 text-emerald-600" /> Form Input Pelanggaran Santri
                   </h3>
