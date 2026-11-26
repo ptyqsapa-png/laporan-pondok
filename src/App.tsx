@@ -5224,7 +5224,7 @@ const rekapSantriData = useMemo(() => {
             const dailyTemplates = templates.filter(t => String(t.timeframe || '').toLowerCase() === 'harian');
         
             return (
-              <div className="space-y-3.5 sm:space-y-6 max-w-7xl mx-auto">
+              <div className="space-y-3.5 sm:space-y-6 w-full max-w-none">
                 
                 {/* Banner Dashboard Pantauan */}
                 <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
