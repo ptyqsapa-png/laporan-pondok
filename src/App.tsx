@@ -2222,7 +2222,7 @@ const rekapSantriData = useMemo(() => {
 }, [filteredPelanggaran]);
   
   return (
-    <div className="h-screen w-full flex overflow-hidden bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+    <div className="relative h-screen w-full max-w-none overflow-hidden bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:...">
       
       {/* Toast Notification */}
       {toastMessage && (
@@ -5259,7 +5259,7 @@ const rekapSantriData = useMemo(() => {
                 </div>
 
                 {/* 3 Kartu Metrik Utama */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-4 w-full">
                   
                   {/* Kartu Kasus Kebersihan */}
                   <div 
