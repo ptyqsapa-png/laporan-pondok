@@ -2222,7 +2222,7 @@ const rekapSantriData = useMemo(() => {
 }, [filteredPelanggaran]);
   
   return (
-    <div className="relative h-screen w-full max-w-none overflow-hidden bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:...">
+    <div className="relative min-h-screen w-full bg-slate-50 font-sans text-slate-800 antialiased">
       
       {/* Toast Notification */}
       {toastMessage && (
@@ -2465,8 +2465,8 @@ const rekapSantriData = useMemo(() => {
 
       {/* MAIN CONTENT WORKSPACE */}
       <main
-        className={`h-screen overflow-y-auto overflow-x-hidden pb-24 ml-0 ${
-          isSidebarExpanded ? 'md:ml-72 md:w-[calc(100%-18rem)]' : 'md:ml-20 md:w-[calc(100%-5rem)]'
+        className={`h-screen overflow-y-auto pb-24 ml-0 ${
+          isSidebarExpanded ? 'md:ml-72' : 'md:ml-20'
         }`}
         >
         {/* Mobile Top Navigation Header */}
